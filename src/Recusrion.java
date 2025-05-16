@@ -46,6 +46,17 @@ public class Recusrion {
         rev(i+1,j-1,arr);
     }
 
+    //reversing an arr using only one index
+    static void revUsing1Index(int i,int arr[]){
+        int n=arr.length;
+        if(i>=n/2)
+            return;
+        int temp=arr[i];
+        arr[i]=arr[n-i-1];
+        arr[n-i-1]=temp;
+        revUsing1Index(i+1,arr);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 //        System.out.println("Enter n");
@@ -57,7 +68,8 @@ public class Recusrion {
 
         int arr[]={1,2,3,4,5};
         int i=0,j=arr.length-1;
-        rev(i,j,arr);
+//        rev(i,j,arr);
+        revUsing1Index(i,arr);
         for(int k : arr)
                 System.out.println(k);
 
